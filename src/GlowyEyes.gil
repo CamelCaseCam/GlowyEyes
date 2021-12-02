@@ -1,0 +1,100 @@
+#target Human
+
+import "Elements"
+
+//Set up the glowing stuff
+Elements: .Opticin
+{
+    Elements: Neonothopanus_CPH
+}
+
+Elements: .Opticin
+{
+    Elements: Neonothopanus_HISPS
+}
+
+Elements: .Opticin
+{
+    /*
+    All the TRAPs are on the same strand as the nnLuz because that makes sure they're closer to the target. Cells are big compared to 
+    RNA molecules, but this guarantees that the ribozymes will be fairly close to their substrate. I added the PolyA sequences to 
+    make sure there's enough unpaired bases for the RNA to rotate freely
+    */
+    Elements: TRAPzyme1
+    Elements: PolyA40    //Seperator sequence
+    Elements: TRAPzyme2_AA    //TRAP 2 attenuator sequence
+    Elements: PolyA40    //Seperator sequence
+    Elements: TRAPzyme3    //Detects RAX if DetectRAX sequence exits
+
+
+    Elements: Neonothopanus_Luc
+}
+
+Elements: .Opticin
+{
+    Elements: Neonothopanus_NNH3H
+}
+
+Elements: DetectRAX    //Produces TRAPzyme 3's AA sequence if RAX promoter is active
+
+
+
+/*
+I'm planning to add features to CadBerry to automate parts of this, but for now I had to do this by hand. Here are the notes I used as
+I was designing the ribozymes
+
+Per1 target:
+GTACCAGCCA
+
+Possible sequences:
+ACACACAGAAGGAAGAGCAA
+TGTGTGTCTTCCTTCTCGTT
+
+CCAGAGCGCCGGGGCAAGGG
+GGTCTCGCGGCCCCGTTCCC
+
+Attenuator +8:
+AACAAAAA
+
+Attenuator:
+CCAGAGCGCCGGGGCAAGGGAACAAAAA
+
+CTGA.GA(A|G)....
+
+(Interfering strand - inverted) AGGAGAAG
+(Target - inverted) AGGAGAAGTCCGTCTTCTGC
+(AA - inverted) AGGAGAAGTCCGTCTTCTGCTTGTTTTT
+(Attenuator) TCCTCTCAGGCAGAAGACGAACAAAAA
+
+TRAP2 AA: CCCTCCCTCCCC|
+
+Target strand:
+Search: ......(A|C|T)T....
+CCCTCC|C|TCCCC
+
+TRAPzyme 1:
+TCCTCTCAGGCAGAAGACGAACAAAAA|GGGGA|AAG|CTCA|AAAG|TGAG|AGGAGTC|GGAGGG
+
+TRAPzyme 2:
+AA: GGGGAGGGAGGG|CCGGAGTA
+Attenuator: TACTCCGGCCCTCCCTCCCC
+Tar: TTGCCT|C|TGCAA
+
+Code:
+TACTCCGGCCCTCCCTCCCC|TTGCA|AAG|CCGG|AAAG|CCGG|AGTAGTC|AGGCAA
+
+Per1=>TRAP1=>TRAP2=>nnLuz
+
+TRAPzyme 3: (Detects attenuator produced with RAX promoter)
+AA: GGGGAGGGAGGG|AAAAAGTA
+Attenuator: TACTTTTTCCCTCCCTCCCC
+Tar: TTGCCT|C|TGCAA
+
+Code:
+TACTTTTTCCCTCCCTCCCC|TTGCA|AAG|TTTT|CCCT|AAAA|AGTAGTC|AGGCAA
+
+Steps:
+1. Create TRAP1 which acts on TRAP2's attenuator
+    1. Create TRAP2's attenuator
+2. Create TRAP2 which acts on nnLuz
+*/
