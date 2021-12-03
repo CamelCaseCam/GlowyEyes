@@ -96,3 +96,18 @@ sequence DetectRAX
         Elements: TRAPzyme3_AA
     }
 }
+
+operation Per1Promoter
+{
+    gtgcccggcattatgcaacccgcctccccgcccgcccggtggagcttcc
+    $InnerCode
+    ACTCGGCTGCG
+}
+
+sequence DetectPer1
+{
+    Elements: .Per1Promoter
+    {
+        TTTTTGTTCGTCTTCTGCCTGAAGAGGA
+    }
+}

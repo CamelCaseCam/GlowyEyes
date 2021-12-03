@@ -1,11 +1,11 @@
-LOCUS                               16685 bp  DNA linear
+LOCUS                               16773 bp  DNA linear
 DEFINITION  GlowyEyes compiled with GIL version 0.2.0 for target Human
 ACCESSION   
 SOURCE      
   ORGANISM  Human
 
 FEATURES             Location/Qualifiers
-     source          1..16685
+     source          1..16773
                      /organism="Human"
      CDS             1..1
                      /label="Main"
@@ -88,6 +88,14 @@ FEATURES             Location/Qualifiers
      CDS             16606..16686
                      /label="Main"
      CDS             1..16686
+                     /label="Main"
+     CDS             16686..16686
+                     /label="Main"
+     CDS             16686..16774
+                     /label="Per1Promoter"
+     CDS             16686..16774
+                     /label="Main"
+     CDS             1..16774
                      /label="Main"
 
 ORIGIN
@@ -369,4 +377,5 @@ ORIGIN
     16501 cctgcggagc aaggagctgc gggacagcgt gatgggctac gacatcaaga tggagagcga
     16561 gaaggtgctg gtggccctgc tgagcggcag cagcACCAGA GTCCCgaggg ccagttggct
     16621 ccccgccttt agcgccgaga gccccagcta ccccGGGGAG GGAGGGAAAA AGTAGAGCCC
-    16681 GAACT
+    16681 GAACTgtgcc cggcattatg caacccgcct ccccgcccgc ccggtggagc ttccTTTTTG
+    16741 TTCGTCTTCT GCCTGAAGAG GAACTCGGCT GCG

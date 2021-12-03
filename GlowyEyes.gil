@@ -36,6 +36,7 @@ Elements: .Opticin
 }
 
 Elements: DetectRAX    //Produces TRAPzyme 3's AA sequence if RAX promoter is active
+Elements: DetectPer1
 
 
 
