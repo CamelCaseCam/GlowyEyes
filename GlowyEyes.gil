@@ -23,8 +23,11 @@ Elements: .Opticin
     Elements: TRAPzyme1
     Elements: PolyA40    //Seperator sequence
     Elements: TRAPzyme2_AA    //TRAP 2 attenuator sequence
+    Elements: PolyA40
+    Elements: TRAPzyme2_AA
     Elements: PolyA40    //Seperator sequence
     Elements: TRAPzyme3    //Detects RAX if DetectRAX sequence exits
+    Elements: PolyA40
 
 
     Elements: Neonothopanus_Luc
